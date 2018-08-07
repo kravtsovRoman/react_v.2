@@ -3,15 +3,23 @@ import ReactDOM from 'react-dom';
 
 
 class App extends React.Component {
-
-    render(){
+    
+    handle(e) {
+        console.log('TEST TEST', e.target);
+    }
+    
+    render() {
         return (
-            <h1>sdgdsgAAAAA</h1>
+            <div style={{backgroundColor: 'red'}} className="test">
+                <h1>AAAAA</h1>
+                <h6>sdfghjkl</h6>
+                <button onClick={this.handle}>Click me {this.props.children} </button>
+            </div>
         );
     }
 }
 
 ReactDOM.render(
-    <App />,
+    <App>BBBBBBBBBCCCCCC</App>,
     document.getElementById('app')
 );
