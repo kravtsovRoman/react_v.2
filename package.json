@@ -10,20 +10,12 @@
     "lint": "eslint ./src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/rainman161/test.git"
-  },
   "keywords": [
     "test",
     "study"
   ],
-  "author": "Vladilen",
+  "author": "Roman",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/rainman161/test/issues"
-  },
-  "homepage": "https://github.com/rainman161/test#readme",
   "devDependencies": {
     "babel-core": "^6.13.2",
     "babel-eslint": "^6.1.2",
@@ -44,7 +36,7 @@
     "webpack-dev-server": "^1.14.1"
   },
   "dependencies": {
-    "react": "^15.3.0",
-    "react-dom": "^15.3.0"
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2"
   }
 }
