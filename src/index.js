@@ -20,6 +20,6 @@ class App extends React.Component {
 }
 
 ReactDOM.render(
-    <App>BBBBBBBBBCCCCCC</App>,
+    <App>BBBBBBBBB</App>,
     document.getElementById('app')
 );
