@@ -1,25 +1,36 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import ReactDOM from 'react-dom';
 
 
 class App extends React.Component {
-    
-    handle(e) {
-        console.log('TEST TEST', e.target);
+
+    constructor(props){
+        super(props);
+
+        this.state = {
+            text: ''
+        };
+    }
+
+    handleChange(e) {
+        console.log(e.target.value);
+        const text = e.target.value;
+        this.setState({text: text});
     }
     
     render() {
         return (
-            <div style={{backgroundColor: 'red'}} className="test">
-                <h1>AAAAA</h1>
-                <h6>sdfghjkl</h6>
-                <button onClick={this.handle}>Click me {this.props.children} </button>
+            <div>
+                <h1 style={{color: 'red'}}> {this.state.text} </h1>
+                <input type="text" value={ this.state.text } onChange={this.handleChange.bind(this)}/>
             </div>
         );
     }
 }
 
 ReactDOM.render(
-    <App>BBBBBBBBB</App>,
+    <App />,
     document.getElementById('app')
 );
+
+
