@@ -43,7 +43,6 @@ module.exports = {
         host: 'localhost',
         port: 3000,
         contentBase: __dirname + '/public',
-
         inline: true,
         hot: true,
         historyApiFallback: true
@@ -89,12 +88,13 @@ module.exports = {
 
 
 if (NODE_ENV == 'production') {
+    console.log('WTF');
     module.exports.plugins.push(
         new webpack.optimize.UglifyJsPlugin({
             compress: {
-                warnings: false,
-                drop_console: true,
-                unsafe: true
+                warnings:       false,
+                drop_console:   true,
+                unsafe:         true
             }
         })
     );
