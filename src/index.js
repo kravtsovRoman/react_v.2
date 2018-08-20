@@ -1,10 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import routes from './routes';
 import { HashRouter } from 'react-router-dom';
+import routes from './routes';
 import configureStore from './store';
-
+import { Header } from './components/index';
+import { DevTools } from './utils/index';
 
 
 const store = configureStore({});
@@ -12,7 +13,13 @@ const store = configureStore({});
 ReactDOM.render((
     <Provider store={ store }>
         <HashRouter>
-            { routes }
+            <div>
+                <Header />
+
+                { routes }
+
+                { process.env.NODE_ENV !== 'production' ? <DevTools /> : null }
+            </div>
         </HashRouter>
     </Provider>
 ),

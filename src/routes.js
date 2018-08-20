@@ -1,8 +1,15 @@
 import React from 'react';
-import App from './app';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
+
+import { HomePage } from './pages/home';
+import { ContactPage } from './pages/contact';
 
 
 export default (
-    <Route exact path={ App.path } component={ App } />
+
+        <Switch>
+            <Route exact path={ HomePage.path } component={ HomePage } />
+            <Route path={ ContactPage.path } component={ ContactPage } />
+        </Switch>
+
 );
