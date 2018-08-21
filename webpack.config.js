@@ -8,11 +8,11 @@ module.exports = {
     entry: [
         'webpack-dev-server/client?http://localhost:3000',
         'webpack/hot/dev-server',
-        './src/contact.js'
+        './src/index.js'
     ],
     output: {
         publicPath: 'http://localhost:3000/',
-        path: __dirname + '/public',
+        path: __dirname + '/public',  
         filename: 'bundle.js'
     },
     watch: NODE_ENV == 'development',
