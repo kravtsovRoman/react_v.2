@@ -16,7 +16,9 @@ ReactDOM.render((
             <div>
                 <Header />
 
-                { routes }
+                <div className='container'>
+                    { routes }
+                </div>
 
                 { process.env.NODE_ENV !== 'production' ? <DevTools /> : null }
             </div>
