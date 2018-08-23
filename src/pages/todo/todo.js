@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { addTodo } from './actions';
-import { likeTodo } from './actions';
+import { likeTodo, deleteTodo } from './actions';
 import classnames  from 'classnames';
 
 
@@ -37,7 +37,7 @@ class TodoPage extends React.Component {
                     { item.todoText }
                     <div>
                         <button onClick={ this.likeTodo.bind(this, item) } className={'btn-like'}>Like</button>
-                        <button  className={'btn-delete'}>X</button>
+                        <button onClick={ this.deleteTodo.bind(this, item) } className={'btn-delete'}>X</button>
                     </div>
                 </li>
             </div>
@@ -46,6 +46,10 @@ class TodoPage extends React.Component {
 
     likeTodo(todo) {
         this.props.dispatch(likeTodo(todo));
+    }
+
+    deleteTodo(todo) {
+        this.props.dispatch(deleteTodo(todo));
     }
 
     addTodo() {

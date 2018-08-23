@@ -1,4 +1,4 @@
-import { ADD_TODO, LIKE_TODO } from './actions';
+import {ADD_TODO, DELETE_TODO, LIKE_TODO} from './actions';
 
 const initialState = {
     todoList: [
@@ -28,10 +28,16 @@ function todoReducers(state = initialState, action) {
 
         case LIKE_TODO:
             const index = state.todoList.findIndex(todo => todo.todoId === action.payload.todoId);
-            state.todoList[index].liked = true;
+            state.todoList[index].liked = action.liked;
 
             return Object.assign({}, state, {
                 todoList: state.todoList
+            });
+
+        case DELETE_TODO:
+            const filterTodo = state.todoList.filter(todo => todo.todoId !== action.payload.todoId);
+            return Object.assign({}, state, {
+                todoList: filterTodo
             });
 
         default: return state;
