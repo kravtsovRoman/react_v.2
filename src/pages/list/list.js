@@ -1,32 +1,52 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ListItem from './list-item';
+import {connect} from 'react-redux';
 
-export default class ListPage extends React.Component {
+class ListPage extends React.Component {
 
     static path = '/list';
 
     constructor(props){
         super(props);
 
-        this.state = {
-            items: [
-                1, 2, 3
-            ]
-        };
     }
 
+    static propTypes = {
+        list: PropTypes.object.isRequired,
+        dispatch: PropTypes.func.isRequired
+    };
+
     renderListItems(item, index) {
-        return <ListItem key={ index } id={ item } />;
+        return <ListItem key={ index } id={ item.id } name={ item.name } />;
     }
 
     render() {
+        const items = this.props.list.items;
         return (
-            <div>
-                <h1>List Page</h1>
-                <ul>
-                    { this.state.items.map(this.renderListItems.bind(this)) }
-                </ul>
+            <div className={'row'}>
+                <h1>Списов видео </h1>
+                <table className='table table-bordered table-hover'>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        { items.map(this.renderListItems.bind(this)) }
+                    </tbody>
+                </table>
             </div>
         );
     }
 }
+
+
+function mapStateToProps(state) {
+    return {
+        list: state.list
+    };
+}
+
+export default connect(mapStateToProps)(ListPage);

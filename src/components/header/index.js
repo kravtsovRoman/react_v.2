@@ -12,10 +12,10 @@ export default class Header extends React.Component {
                     </div>
                     <ul className='nav navbar-nav'>
                         <li className='nav-item'>
-                            <Link className='nav-link' to='/' action='replace'>Todo</Link>
+                            <Link className='nav-link' to='/' action='replace'>Простой Todo</Link>
                         </li>
                         <li className='nav-item'>
-                            <Link className='nav-link' to='/list' action='replace'>Список</Link>
+                            <Link className='nav-link' to='/list' action='replace'>Список видео</Link>
                         </li>
                         <li className='nav-item'>
                             <Link className='nav-link' to='/contact' action='replace'>Контакты</Link>
