@@ -5,6 +5,7 @@ import { HashRouter } from 'react-router-dom';
 import routes from './routes';
 import configureStore from './store';
 import { Header } from './components/index';
+import { Modal } from './components/modal/index';
 import { DevTools } from './utils/index';
 
 
@@ -14,6 +15,7 @@ ReactDOM.render((
     <Provider store={ store }>
         <HashRouter>
             <div>
+                <Modal />
                 <Header />
 
                 <div className='container'>
