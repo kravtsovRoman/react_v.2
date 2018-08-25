@@ -8,7 +8,7 @@ import { Header } from './components/index';
 import { DevTools } from './utils/index';
 
 
-const store = configureStore({});
+export const store = configureStore({});
 
 ReactDOM.render((
     <Provider store={ store }>
