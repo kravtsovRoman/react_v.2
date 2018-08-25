@@ -24,7 +24,7 @@ class ListPage extends React.Component {
         const items = this.props.list.items;
         return (
             <div className={'row'}>
-                <h1>Списов видео </h1>
+                <h1>Список видео </h1>
                 <table className='table table-bordered table-hover'>
                     <thead>
                         <tr>
