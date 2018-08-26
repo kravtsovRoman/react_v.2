@@ -69,6 +69,8 @@ class TodoPage extends React.Component {
         const todoId = todoList.length + 1;
         const todoText = this.state.todoName;
 
+        if (todoText === '') return null;
+
         this.props.dispatch(addTodo(todoId, todoText));
         this.setState({ todoName: '' });
 

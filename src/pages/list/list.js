@@ -17,7 +17,7 @@ class ListPage extends React.Component {
     };
 
     renderListItems(item, index) {
-        return <ListItem key={ index } id={ item.id } name={ item.name } />;
+        return <ListItem key={ index } id={ item.id } name={ item.name }  youtube={ item.youtube }/>;
     }
 
     render() {
