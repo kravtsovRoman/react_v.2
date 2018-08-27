@@ -60,8 +60,16 @@ class EditModal extends React.Component {
                     />
                 </div>
                 <div className='modal-footer'>
-                    <button type='button' className='btn btn-secondary' onClick={ this.close.bind(this) }>Закрыть</button>
-                    <button type='button' className='btn btn-primary' onClick={ this.save.bind(this) } > Сохранить </button>
+                    <button
+                        type='button'
+                        className='btn btn-secondary'
+                        onClick={ this.close.bind(this) }
+                    >Закрыть</button>
+                    <button
+                        type='button'
+                        className='btn btn-primary'
+                        onClick={ this.save.bind(this) }
+                    > Сохранить </button>
                 </div>
             </div>
         );

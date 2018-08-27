@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { openModal } from '../../components/modal/index';
 import EditModal  from './edit-modal';
-import { editItem } from './actions';
+import DeleteModal  from './delete-modal';
+import { editItem, deleteItem } from './actions';
 
 class ListItem extends React.Component {
     static propTypes = {
@@ -18,8 +19,15 @@ class ListItem extends React.Component {
 
         this.props.dispatch( openModal({
             content: <EditModal id={ id } name={ name } youtube={ youtube } onSave={ editItem } />,
-            title: 'Редактировать',
-            btnText: 'Сохранить'
+            title: 'Редактировать'
+        }) );
+    }
+
+    remove() {
+        const { id, name } = this.props;
+        this.props.dispatch( openModal({
+            content: <DeleteModal id={ id } name={ name } onDelete={ deleteItem } />,
+            title: 'Удалить?'
         }) );
     }
 
@@ -30,7 +38,7 @@ class ListItem extends React.Component {
                 <td><Link to={ `/list/${ this.props.id }` }>{ this.props.name }</Link></td>
                 <td>
                     <button className='btn-video btn btn-success' onClick={ this.edit.bind(this) }>Edit</button>
-                    <button className='btn-video btn btn-danger'>X</button>
+                    <button className='btn-video btn btn-danger' onClick={ this.remove.bind(this) }>X</button>
                 </td>
             </tr>
 

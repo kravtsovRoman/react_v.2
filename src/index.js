@@ -22,7 +22,7 @@ ReactDOM.render((
                     { routes }
                 </div>
 
-                { process.env.NODE_ENV !== 'production' ? <DevTools /> : null }
+                { NODE_ENV !== 'production' ? <DevTools /> : null }
             </div>
         </HashRouter>
     </Provider>
