@@ -4,3 +4,6 @@ bower_components
 .idea
 
 public/bundle.js
+
+package-lock.json
+bash.exe.stackdump
