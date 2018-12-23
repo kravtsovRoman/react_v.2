@@ -1,21 +1,9 @@
 import React from 'react';
 
-// function Car() {
-//     return (
-//       <h4>Car</h4>
-//     );
-// }
-
-// const car = () => {
-//     return (
-//         <h5>CAr Car car</h5>
-//     );
-// };
-
 const car = () => (
-    <div>
-        <h6>h6 h6 h6</h6>
-        <p>STRONG</p>
+    <div style={{fontSize: '35px'}}>
+        <h6>Car component</h6>
+        <strong>{Math.random()}</strong>
     </div>
 );
 
