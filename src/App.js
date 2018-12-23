@@ -1,19 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
+import Car from './Car/Car'
 
 class App extends Component {
   render() {
     const divStyle = {
-      'border': '3px solid #ccc',
-      'color': 'red'
+      'border': '3px solid #000',
+      'color': '#333'
     };
 
     return (
       <div className="App" style={divStyle} >
-        <h1 style={{fontSize: '60px'}}>
+        <h1>
           Hello
         </h1>
-        <h3 style={{color: 'blue'}}>Re Re</h3>
+          <Car/>
       </div>
     );
   }
