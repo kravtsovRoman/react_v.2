@@ -3,26 +3,36 @@ import './App.css';
 import Car from './Car/Car'
 
 class App extends Component {
+
+  state = {
+    cars: [
+      {name: 'Ford', year: '2002'},
+      {name: 'Audi', year: '2008'},
+      {name: 'Mazda', year: '2022'}
+    ],
+    pageTitle: 'React Hello'
+  };
+
+  handleClick = () => {
+    this.setState({
+      pageTitle: 'React is COOL!!!'
+    })
+  };
+
   render() {
-    const divStyle = {
-      'border': '3px solid #000',
-      'color': '#333'
-    };
+    const cars = this.state.cars;
 
     return (
       <div className="App" >
         <h1>
-          Hello
+          {this.state.pageTitle}
         </h1>
+        <button onClick={this.handleClick}>Change title</button>
           <hr/>
-          <Car name={'Ford'} year={2002}>
-              <p style={{color: 'red'}}>Color</p>
-          </Car>
-          <hr/>
-          <Car name={'Audi'} year={2010} />
-          <hr/>
-          <Car name={'Mazda'} year={2008} />
-          <hr/>
+        {
+          cars.map(function(item, i) {
+          return <Car key={i} name={item.name} year={item.year} />
+        })}
       </div>
     );
   }
