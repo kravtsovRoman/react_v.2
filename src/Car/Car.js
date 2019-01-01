@@ -1,9 +1,10 @@
 import React from 'react';
 
-const car = () => (
-    <div style={{fontSize: '35px'}}>
-        <h6>Car component</h6>
-        <strong>{Math.random()}</strong>
+const car = (props) => (
+    <div>
+        <h3>Car name: {props.name}</h3>
+        <strong>Year: {props.year}</strong>
+        {props.children}
     </div>
 );
 

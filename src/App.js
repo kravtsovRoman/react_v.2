@@ -10,11 +10,19 @@ class App extends Component {
     };
 
     return (
-      <div className="App" style={divStyle} >
+      <div className="App" >
         <h1>
           Hello
         </h1>
-          <Car/>
+          <hr/>
+          <Car name={'Ford'} year={2002}>
+              <p style={{color: 'red'}}>Color</p>
+          </Car>
+          <hr/>
+          <Car name={'Audi'} year={2010} />
+          <hr/>
+          <Car name={'Mazda'} year={2008} />
+          <hr/>
       </div>
     );
   }
