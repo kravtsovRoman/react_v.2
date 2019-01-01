@@ -13,9 +13,11 @@ class App extends Component {
     pageTitle: 'React Hello'
   };
 
-  handleClick = () => {
+
+  handleClick = (newTitle, newTitle2) => {
+    newTitle2 = newTitle2 || '';
     this.setState({
-      pageTitle: 'React is COOL!!!'
+      pageTitle: newTitle + newTitle2
     })
   };
 
@@ -27,11 +29,16 @@ class App extends Component {
         <h1>
           {this.state.pageTitle}
         </h1>
-        <button onClick={this.handleClick}>Change title</button>
+        <button onClick={this.handleClick.bind(this, 'Changed!')}>Change title</button>
           <hr/>
         {
-          cars.map(function(item, i) {
-          return <Car key={i} name={item.name} year={item.year} />
+          cars.map((item, i) => {
+          return <Car
+            key={i}
+            name={item.name}
+            year={item.year}
+            onChangeTitle={this.handleClick.bind(this, item.name, item.year)}
+          />
         })}
       </div>
     );
