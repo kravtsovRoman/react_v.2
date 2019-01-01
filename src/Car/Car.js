@@ -1,10 +1,16 @@
 import React from 'react';
 
 const car = (props) => (
-  <div>
+  <div style={{
+    border: '2px solid #ccc',
+    margin: '10px',
+    display: 'inline-block',
+    padding: '10px'
+  }}>
     <h3>Car name: {props.name}</h3>
     <p>Year: {props.year}</p>
-    <button onClick={props.onChangeTitle}>Click</button>
+    <input type="text" onChange={props.onChangeName} value={props.name}/>
+    <button onClick={props.onDelete}>Delete</button>
   </div>
 );
 

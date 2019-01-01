@@ -10,36 +10,54 @@ class App extends Component {
       {name: 'Audi', year: '2008'},
       {name: 'Mazda', year: '2022'}
     ],
-    pageTitle: 'React Hello'
+    pageTitle: 'React Hello',
+    showCars: true
   };
 
 
-  handleClick = (newTitle, newTitle2) => {
-    newTitle2 = newTitle2 || '';
+  toggleCarsHandler = () => {
     this.setState({
-      pageTitle: newTitle + newTitle2
+      showCars: !this.state.showCars
     })
   };
 
+  onChangeName = (name, index) => {
+    const car = this.state.cars[index];
+    car.name = name;
+    const cars = [...this.state.cars];
+    cars[index] = car;
+    this.setState({cars});
+
+  };
+
+  deleteHandler(index) {
+    const cars = [...this.state.cars];
+    cars.splice(index, 1);
+    this.setState({cars});
+  };
+
   render() {
-    const cars = this.state.cars;
+
+    let cars = null;
+
+    if(this.state.showCars) {
+      cars = this.state.cars.map((car, i) => {
+        return <Car
+          key={i}
+          name={car.name}
+          year={car.year}
+          onDelete={this.deleteHandler.bind(this, i)}
+          onChangeName={(e) => this.onChangeName(e.target.value, i)}
+        />
+      })
+    }
 
     return (
       <div className="App" >
-        <h1>
-          {this.state.pageTitle}
-        </h1>
-        <button onClick={this.handleClick.bind(this, 'Changed!')}>Change title</button>
+        <h1>{this.state.pageTitle}</h1>
+        <button onClick={this.toggleCarsHandler}>Tooggle cars</button>
           <hr/>
-        {
-          cars.map((item, i) => {
-          return <Car
-            key={i}
-            name={item.name}
-            year={item.year}
-            onChangeTitle={this.handleClick.bind(this, item.name, item.year)}
-          />
-        })}
+        { cars }
       </div>
     );
   }
