@@ -4,16 +4,19 @@ import Car from './Car/Car'
 
 class App extends Component {
 
-  state = {
-    cars: [
-      { name: 'Ford', year: '2002' },
-      { name: 'Audi', year: '2008' },
-      { name: 'Mazda', year: '2022' }
-    ],
-    pageTitle: 'React Hello',
-    showCars: true
-  };
+  constructor(props) {
+    super(props);
 
+    this.state = {
+      cars: [
+        { name: 'Ford', year: '2002' },
+        { name: 'Audi', year: '2008' },
+        { name: 'Mazda', year: '2022' }
+      ],
+      pageTitle: 'React Hello',
+      showCars: true
+    };
+  }
 
   toggleCarsHandler = () => {
     this.setState({
@@ -36,10 +39,17 @@ class App extends Component {
     this.setState({ cars });
   };
 
+  componentWillMount() {
+    console.log('App componentWillMount')
+  }
+
+  componentDidMount() {
+    console.log('App componentDidMount')
+  }
+
   render() {
-
+    console.log('App render')
     let cars = null;
-
     if (this.state.showCars) {
       cars = this.state.cars.map((car, i) => {
         return <Car
@@ -54,7 +64,7 @@ class App extends Component {
 
     return (
       <div className="App" >
-        <h1>{this.state.pageTitle}</h1>
+        <h1>{this.props.title}</h1>
         <button onClick={this.toggleCarsHandler}>Tooggle cars</button>
         <hr />
         {cars}
