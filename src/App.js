@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.scss';
 import Car from './Car/Car'
+import Counter from './Counter/Counter'
 
 class App extends Component {
 
@@ -48,7 +49,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('App render')
+    console.log('App render');
     let cars = null;
     if (this.state.showCars) {
       cars = this.state.cars.map((car, i) => {
@@ -68,6 +69,7 @@ class App extends Component {
         <button onClick={this.toggleCarsHandler}>Tooggle cars</button>
         <hr />
         {cars}
+        <Counter/>
       </div>
     );
   }
