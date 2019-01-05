@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
-import './App.css';
+import './App.scss';
 import Car from './Car/Car'
 
 class App extends Component {
 
   state = {
     cars: [
-      {name: 'Ford', year: '2002'},
-      {name: 'Audi', year: '2008'},
-      {name: 'Mazda', year: '2022'}
+      { name: 'Ford', year: '2002' },
+      { name: 'Audi', year: '2008' },
+      { name: 'Mazda', year: '2022' }
     ],
     pageTitle: 'React Hello',
     showCars: true
@@ -26,21 +26,21 @@ class App extends Component {
     car.name = name;
     const cars = [...this.state.cars];
     cars[index] = car;
-    this.setState({cars});
+    this.setState({ cars });
 
   };
 
   deleteHandler(index) {
     const cars = [...this.state.cars];
     cars.splice(index, 1);
-    this.setState({cars});
+    this.setState({ cars });
   };
 
   render() {
 
     let cars = null;
 
-    if(this.state.showCars) {
+    if (this.state.showCars) {
       cars = this.state.cars.map((car, i) => {
         return <Car
           key={i}
@@ -56,8 +56,8 @@ class App extends Component {
       <div className="App" >
         <h1>{this.state.pageTitle}</h1>
         <button onClick={this.toggleCarsHandler}>Tooggle cars</button>
-          <hr/>
-        { cars }
+        <hr />
+        {cars}
       </div>
     );
   }
