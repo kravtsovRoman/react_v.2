@@ -1,5 +1,6 @@
 import React from 'react'
 import './car.css';
+import  PropTypes from 'prop-types'
 
 
 class Car extends React.Component {
@@ -31,5 +32,12 @@ class Car extends React.Component {
     )
   }
 }
+
+Car.propTypes = {
+  name: PropTypes.string.isRequired,
+  year: PropTypes.number,
+  onChangeName: PropTypes.func,
+  onDelete: PropTypes.func
+};
 
 export default Car;
