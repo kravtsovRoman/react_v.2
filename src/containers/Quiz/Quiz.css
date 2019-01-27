@@ -1,6 +1,7 @@
 .Quiz {
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    /*justify-content: center;*/
     padding-top: 100px;
     flex-grow: 1;
     width: 100%;
@@ -9,5 +10,15 @@
 
 .Quiz h1 {
     color: #fff;
-    margin-left: 10px;
+    margin: 0;
+}
+
+.QuizWrapper {
+    width: 600px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.QuizWrapper li {
+    text-align: left;
 }
